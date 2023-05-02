@@ -1,0 +1,28 @@
+#!/usr/bin/env bash
+# script that displays numbers from 1 to 20
+# displays 4 and bad luck from China for 4th loop iteration
+# displays 9 and bad luck from Japan for 9th loop iteration
+# displays 17 and bad luck from Italy for 17th loop iteration
+
+j=1
+while [ $j -lt "21" ]
+do
+	case $j in
+		4)
+			echo $j	
+			echo "bad luck from China"
+			;;
+		9)
+			echo $j
+			echo "bad luck from Japan"
+			;;
+		17)
+			echo $j
+			echo "bad luck from Italy"
+			;;
+		*)
+			echo $j
+	esac
+	(("j = j + 1"))
+done
+

@@ -1,0 +1,15 @@
+#!/usr/bin/env bash
+# script display Best School 10 times
+# 9th iteration display Best School
+# and then Hi on a new line
+
+j=0
+while [ $j -lt "9" ]
+do
+	echo "Best School"
+	if [ $j -eq "8" ]
+	then
+		echo -e "Hi\nBest School"
+	fi
+	(("j = j + 1"))
+done

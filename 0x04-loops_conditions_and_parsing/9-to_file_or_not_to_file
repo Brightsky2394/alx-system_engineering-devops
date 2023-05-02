@@ -4,7 +4,7 @@ fd="school"
 if [ -a $fd ]
 then
 	echo "school file exists"
-	if ! [ [ -s $fd ] ]
+	if ! [[ -s $fd ]]
 	then
 		echo "school file is empty"
 	else

@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# displays number from 1 to 100
+# if number is a multiple of 3 and 5 display FissBuzz
+# displays Fizz for multiple of 3 and Buzz for 5.
+
+j=1
+while [ $j -lt "101" ]
+do
+	if ((j % 3 == 0 && j % 5 == 0))
+	then
+		echo "FissBuzz"
+	elif ((j % 3 == 0))
+	then
+		echo "Fiss"
+	elif ((j % 5 == 0))
+	then
+		echo "Buzz"
+	else
+		echo $j
+	fi
+	(("j = j + 1"))
+done

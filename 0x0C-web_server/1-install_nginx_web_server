@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
-# Configures NGINX
-sudo apt-get update -y
-sudo apt-get install -y nginx
-echo "Hello World!" | sudo tee /var/www/html/index.html
+# Bash script that configures a new Ubuntu machine to respect above requirements
+
+sudo apt-get -y update
+sudo apt-get -y install nginx
+sudo ufw allow 'Nginx HTTP'
 sudo service nginx start
+echo "Hello World!" | sudo tee /var/www/html/index.html

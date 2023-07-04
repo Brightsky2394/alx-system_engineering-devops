@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
-# returns a custom header on request
-
-apt-get -y update
-apt-get -y install nginx
-
-sed -i "47i\\\tadd_header X-Served-By $HOSTNAME;" /etc/nginx/sites-available/default
-echo "Hello World!" | tee /var/www/html/index.html
-echo "Ceci n'est pas une page" > /var/www/html/404.html
-
+# Configures a custom http response header
+sudo apt-get update -y
+sudo apt-get install nginx -y
+echo "Holberton School" > /var/www/html/index.nginx-debian.html
+echo "Ceci n'est pas une page" > /usr/share/nginx/html/custom_404.html
+new_string="server_name _;\n\trewrite ^\/redirect_me google.com permanent;"
+nstr_1="\n\tadd_header X-Served-By \$hostname;"
+nstr_2="\n\terror_page 404 \/custom_404.html;\n\tlocation = \/custom_404.html {\n\t\troot \/usr\/share\/nginx\/html;\n\t\tinternal;\n\t}"
+sed -i "s/server_name _;/$new_string$nstr1$nstr2/" /etc/nginx/sites-enabled/default
 service nginx start

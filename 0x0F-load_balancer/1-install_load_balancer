@@ -11,8 +11,8 @@ frontend http_front
 backend http_back
 	balance roundrobin
 	mode http
-	server 73999-web-01 100.25.199.147 check
-	server 73999-web-02 100.27.2.40 check
+	server 73999-web-01 52.87.231.71 check
+	server 73999-web-02 54.210.9.50 check
 "
 
 add-apt-repository -y ppa:vbernat/haproxy-2.5

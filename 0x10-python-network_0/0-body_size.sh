@@ -1,3 +1,3 @@
 #!/bin/bash
-# a script to check the size of the body of the response
-curl -i $1 | grep Content-Length | tail -c 4
+#cURL body size
+curl -sI "$1" | grep "Content-Length:" | cut -d' ' -f2

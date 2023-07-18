@@ -13,7 +13,7 @@
 <hr>
 <h3>Author</h3>
 <hr>
-<ol>
-<li>Sikiru Yaya Korede - Brightsky2394</li>
-</ol>
+<li>
+<ol>Sikiru Yaya Korede - Brightsky2394</ol>
+</li>
 

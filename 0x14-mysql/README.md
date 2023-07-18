@@ -1,5 +1,4 @@
 <h1>0x14. MySQL</h1>
-<hr>
 <h3>Description</h3>
 <hr>
 <p>What should be learn from the project are :</p>
@@ -12,3 +11,9 @@
 </ol>
 <hr>
 <hr>
+<h3>Author</h3>
+<hr>
+<ol>
+<li>Sikiru Yaya Korede - Brightsky2394</li>
+</ol>
+

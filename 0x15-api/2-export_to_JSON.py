@@ -15,7 +15,7 @@ if __name__ == '__main__':
         record['completed'] = todo['completed']
         record['username'] = usr
         group.append(record)
-        record = {}
+        record = dict()
     user_data[argv[1]] = group
-    with open('{}.json'.format(argv[1]), mode='w') as fd:
-        json.dump(user_data, fd)
+    with open('{}.json'.format(argv[1]), mode='w') as file:
+        json.dump(user_data, file)

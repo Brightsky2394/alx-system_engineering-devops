@@ -6,8 +6,8 @@ import json
 
 
 if __name__ == '__main__':
-    api_url = 'https://jsonplaceholder.typicode.com'
-    usr = get(api_url + '/users/' + argv[1]).json()['username']
+    endpoint = 'https://jsonplaceholder.typicode.com'
+    usr = get(endpoint + '/users/' + argv[1]).json()['username']
     todos = get(endpoint + '/todos?userId=' + argv[1]).json()
     record, user_data, group = {}, {}, list()
     for todo in todos:
@@ -16,6 +16,7 @@ if __name__ == '__main__':
         record['username'] = usr
         group.append(record)
         record = dict()
+
     user_data[argv[1]] = group
     with open('{}.json'.format(argv[1]), mode='w') as file:
         json.dump(user_data, file)

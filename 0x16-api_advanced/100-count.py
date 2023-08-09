@@ -1,0 +1,40 @@
+#!/usr/bin/python3
+"""Contains the count_words function"""
+from requests import get
+
+
+def count_words(subreddit, word_list, found_list=[], after=None):
+    '''Prints counts of given words found
+       in hot posts of a given subreddit.
+    '''
+    user_agent = {'user-agent': 'my user agent 1.3'}
+    base_url = 'http://www.reddit.com'
+    url = '{base}/r/{}/hot.json?after={aft}'
+    api_url = url.format(base=base_url, sub=subreddit, aft=after)
+    posts = get(api_url, headers=user_agent)
+    if after is None:
+        word_list = [word.lower() for word in word_list]
+
+    if posts.status_code == 200:
+        posts = posts.json()['data']
+        aft = posts['after']
+        posts = posts['children']
+        for post in posts:
+            title = post['data']['title'].lower()
+            for word in title.split(' '):
+                if word in word_list:
+                    found_list.append(word)
+        if aft is not None:
+            count_words(subreddit, word_list, found_list, aft)
+        else:
+            result = {}
+            for word in found_list:
+                if word.lower() in result.keys():
+                    result[word.lower()] += 1
+                else:
+                    result[word.lower()] = 1
+            for key, value in sorted(result.items(), key=lambda item: item[1],
+                                     reverse=True):
+                print('{}: {}'.format(key, value))
+    else:
+        return

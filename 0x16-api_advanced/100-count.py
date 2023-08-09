@@ -5,12 +5,11 @@ from requests import get
 
 def count_words(subreddit, word_list, found_list=[], after=None):
     '''Prints counts of given words found
-       in hot posts of a given subreddit.
+       in hot posts of a given subreddit
     '''
     user_agent = {'user-agent': 'my user agent 1.3'}
     base_url = 'http://www.reddit.com'
-    api_url = '{}/r/{}/hot.json?after={}'.format(base_url,
-                                                 subreddit, after)
+    api_url = '{}/r/{}/hot.json?after={}'.format(base_url, subreddit, after)
     posts = get(api_url, headers=user_agent)
     if after is None:
         word_list = [word.lower() for word in word_list]

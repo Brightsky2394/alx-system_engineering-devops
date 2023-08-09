@@ -9,8 +9,8 @@ def count_words(subreddit, word_list, found_list=[], after=None):
     '''
     user_agent = {'user-agent': 'my user agent 1.3'}
     base_url = 'http://www.reddit.com'
-    url = '{base}/r/{}/hot.json?after={aft}'
-    api_url = url.format(base=base_url, sub=subreddit, aft=after)
+    api_url = '{}/r/{}/hot.json?after={}'.format(base_url,
+                                                 subreddit, after)
     posts = get(api_url, headers=user_agent)
     if after is None:
         word_list = [word.lower() for word in word_list]

@@ -18,8 +18,8 @@ def recurse(subreddit, hot_list=[], after=''):
     payload = {'after': after, 'limit': '100'}
 
     # Get the Response of the Reddit API
-    res = requests.get(api_url, headers=user_agent,
-                       params=payload, allow_redirects=False)
+    res = get(api_url, headers=user_agent,
+              params=payload, allow_redirects=False)
 
     # Checks if the subreddit is invalid
     if res.status_code == 200:
